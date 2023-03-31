@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Install dependencies
+echo "Installing..."
+npm install
+
 # Linting
 echo "Running linter..."
 npm run eslint
