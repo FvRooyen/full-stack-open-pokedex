@@ -28,10 +28,7 @@ jobs:
           start: npm run start-prod
           wait-on: http://localhost:5000
       - name: Render Deploy Action
-      - name: Deploy to Render
-  # You may pin to the exact commit or the version.
-  # uses: JorgeLNJunior/render-deploy@354f5b345ec066cc9b78e387040cf5b3478578b5
-      - uses: JorgeLNJunior/render-deploy@v1.3.2
+        uses: johnbeynon/render-deploy-action@v0.0.8
         with:
           # Render service id
           service_id: srv-cgjb18fdvk4lfi7ls8a0
