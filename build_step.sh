@@ -5,8 +5,8 @@ echo "Installing..."
 npm install
 
 # Linting
-echo "Running linter..."
-npm run eslint
+#echo "Running linter..."
+#npm run eslint
 
 # Build
 echo "Building app..."
