@@ -44,8 +44,10 @@ jobs:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
           # Severity level - info, warn, or error
           severity: info
+          discription: false
           # Text to be sent as normal text above the embed. Use context expressions and environment variables to provide information.
           text: Version successfully deployed
+          username: false
       - name: Discord Webhook Notify
         if: ${{ failure() }}
         uses: rjstone/discord-webhook-notify@v1.0.4
@@ -56,6 +58,7 @@ jobs:
           severity: error
           # Text to be sent as normal text above the embed. Use context expressions and environment variables to provide information.
           text: Deployment failed
+          username: false
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
