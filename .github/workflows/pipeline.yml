@@ -36,18 +36,26 @@ jobs:
         with:
           service-id: srv-cgjb18fdvk4lfi7ls8a0
           api-key: rnd_ULY6hWR0bhKM4newg2JM9iLfvIL3
-      - name: Discord success notification
+      - name: Discord Webhook Notify
         if: ${{ success() }}
-        uses: johnnyhuy/actions-discord-git-webhook@v1.0.0
-        with:
-          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          color: green
-      - name: Discord failure notification
+        uses: rjstone/discord-webhook-notify@v1.0.4
+        with: 
+          # Discord webhook URL. Should be stored in a secret and inserted as a context expression.
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          # Severity level - info, warn, or error
+          severity: info
+          # Text to be sent as normal text above the embed. Use context expressions and environment variables to provide information.
+          text: Version successfully deployed
+      - name: Discord Webhook Notify
         if: ${{ failure() }}
-        uses: johnnyhuy/actions-discord-git-webhook@v1.0.0
+        uses: rjstone/discord-webhook-notify@v1.0.4
         with:
-          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          color: red
+          # Discord webhook URL. Should be stored in a secret and inserted as a context expression.
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          # Severity level - info, warn, or error
+          severity: error
+          # Text to be sent as normal text above the embed. Use context expressions and environment variables to provide information.
+          text: Deployment failed
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
