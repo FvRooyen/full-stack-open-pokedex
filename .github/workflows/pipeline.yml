@@ -36,6 +36,18 @@ jobs:
         with:
           service-id: srv-cgjb18fdvk4lfi7ls8a0
           api-key: rnd_ULY6hWR0bhKM4newg2JM9iLfvIL3
+      - name: Discord success notification
+        if: ${{ success() }}
+        uses: johnnyhuy/actions-discord-git-webhook@v1.0.0
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          color: green
+      - name: Discord failure notification
+        if: ${{ failure() }}
+        uses: johnnyhuy/actions-discord-git-webhook@v1.0.0
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          color: red
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
