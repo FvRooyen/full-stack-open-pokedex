@@ -3,7 +3,7 @@ name: Health check
 on: 
   schedule: 
   # * is a special character in YAML so you have to quote this string
-    - cron:  '0 6 * * *'
+    - cron:  '0 11 * * *'
     
 jobs:
   hello_world_job:
@@ -18,4 +18,4 @@ jobs:
           max-attempts: 3
           # Delay between retries
           retry-delay: 5s
-          retry-all: no
+          retry-all: FALSE
