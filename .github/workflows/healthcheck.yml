@@ -6,7 +6,7 @@ on:
     - cron:  '0 11 * * *'
     
 jobs:
-  hello_world_job:
+  health_check_job:
     runs-on: ubuntu-20.04
     steps:
       - name: Check the deployed service URL
