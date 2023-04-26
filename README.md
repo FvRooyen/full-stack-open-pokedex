@@ -14,5 +14,5 @@ Start by running `npm install` inside the project folder
 `npm run build` to make a production build
 `npm run start-prod` to run your production build
 
-Part 11 B can be found in the following repo:
+# Part 11 B can be found in the following repo:
 https://github.com/FvRooyen/bloglistApp.git
